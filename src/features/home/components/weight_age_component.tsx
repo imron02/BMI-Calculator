@@ -35,14 +35,14 @@ const WeightAndAgeComponent = ({
   }, [weight, age]);
 
   const minusWeight = () => {
-    if (weight >= 0) {
-      setWeight(weight--);
+    if (weight > 0) {
+      setWeight(--weight);
       timerMinusWeight.current = setTimeout(minusWeight, 200);
     }
   };
 
   const plusWeight = () => {
-    setWeight(weight++);
+    setWeight(++weight);
     timerPlusWeight.current = setTimeout(plusWeight, 200);
   };
 
@@ -53,15 +53,15 @@ const WeightAndAgeComponent = ({
   };
 
   const minusAge = () => {
-    if (age >= 0) {
-      setAge(age--);
+    if (age > 0) {
+      setAge(--age);
       timerMinusAge.current = setTimeout(minusAge, 200);
     }
   };
 
   const plusAge = () => {
-    if (age <= 100) {
-      setAge(age++);
+    if (age < 100) {
+      setAge(++age);
       timerPlusAge.current = setTimeout(plusAge, 200);
     }
   };
