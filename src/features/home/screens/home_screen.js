@@ -1,5 +1,5 @@
 import React from 'react';
-import {Text, TouchableOpacity, View} from 'react-native';
+import {ScrollView, Text, TouchableOpacity} from 'react-native';
 import {useFocusEffect} from '@react-navigation/native';
 
 import styles from './home_style';
@@ -35,15 +35,19 @@ const HomeScreen = ({navigation}) => {
   };
 
   return (
-    <View style={styles.container}>
-      <GenderComponent gender={gender} onChange={setGender} />
-      <HeightComponent value={height} onChange={setHeight} />
-      <WeightAndHeightComponent
-        weight={weight}
-        age={age}
-        onChangeWeight={setWeight}
-        onChangeAge={setAge}
-      />
+    <>
+      <ScrollView
+        style={styles.container}
+        contentContainerStyle={styles.content}>
+        <GenderComponent gender={gender} onChange={setGender} />
+        <HeightComponent value={height} onChange={setHeight} />
+        <WeightAndHeightComponent
+          weight={weight}
+          age={age}
+          onChangeWeight={setWeight}
+          onChangeAge={setAge}
+        />
+      </ScrollView>
       <TouchableOpacity
         style={styles.button(canSubmit())}
         disabled={!canSubmit()}
@@ -51,7 +55,7 @@ const HomeScreen = ({navigation}) => {
         activeOpacity={0.8}>
         <Text style={styles.btnText}>CALCULATE YOUR BMI</Text>
       </TouchableOpacity>
-    </View>
+    </>
   );
 };
 
