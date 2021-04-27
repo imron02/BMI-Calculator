@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React from 'react';
 import {Button, View} from 'react-native';
 import {createDrawerNavigator} from '@react-navigation/drawer';
 import {createStackNavigator} from '@react-navigation/stack';
@@ -6,6 +6,7 @@ import {createStackNavigator} from '@react-navigation/stack';
 import HeaderComponent from '../components/header_component';
 import HomeScreen from '../features/home/screens/home_screen';
 import ResultScreen from '../features/result/screens/result_screen';
+import {Colors} from '../utils/color_util';
 
 const Drawer = createDrawerNavigator();
 const Stack = createStackNavigator();
@@ -19,7 +20,11 @@ function NotificationsScreen({navigation}) {
 }
 
 const HomeStack = () => (
-  <Stack.Navigator>
+  <Stack.Navigator
+    screenOptions={{
+      headerStyle: {backgroundColor: Colors.dark},
+      headerTintColor: Colors.white,
+    }}>
     <Stack.Screen
       name="Home"
       component={HomeScreen}
@@ -27,13 +32,7 @@ const HomeStack = () => (
         header: () => <HeaderComponent />,
       }}
     />
-    <Stack.Screen
-      name="Result"
-      component={ResultScreen}
-      options={{
-        header: () => <HeaderComponent />,
-      }}
-    />
+    <Stack.Screen name="Result" component={ResultScreen} />
   </Stack.Navigator>
 );
 

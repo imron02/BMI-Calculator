@@ -44,7 +44,7 @@ const ResultScreen = ({navigation, route}) => {
       </ScrollView>
       <TouchableOpacity
         style={styles.btnBack}
-        onPress={() => navigation.goBack()}
+        onPress={navigation.goBack}
         activeOpacity={0.8}>
         <Text style={styles.btnText}>RE-CALCULATE YOUR BMI</Text>
       </TouchableOpacity>
