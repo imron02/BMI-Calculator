@@ -11,44 +11,88 @@ import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 import {Colors} from '../../../utils/color_util';
 
 const GenderComponent = ({weight, age, onChangeWeight, onChangeAge}) => {
+  const timerPlusAge = React.useRef(null);
+  const timerMinusAge = React.useRef(null);
+  const timerPlusWeight = React.useRef(null);
+  const timerMinusWeight = React.useRef(null);
+  const [countAge, setAge] = React.useState(weight);
+  const [countWeight, setWeight] = React.useState(age);
+
+  React.useEffect(() => {
+    setAge(age);
+    setWeight(weight);
+  }, [weight, age]);
+
   const minusWeight = () => {
     if (weight > 0) {
-      onChangeWeight(--weight);
+      setWeight(prevValue => prevValue - 1);
+      timerMinusWeight.current = setTimeout(minusWeight, 100);
     }
   };
 
-  const plusWeight = () => onChangeWeight(++weight);
+  const plusWeight = () => {
+    setWeight(prevValue => prevValue + 1);
+    timerPlusWeight.current = setTimeout(plusWeight, 100);
+  };
+
+  const stopWeight = () => {
+    clearTimeout(timerMinusWeight.current);
+    clearTimeout(timerPlusWeight.current);
+    onChangeWeight(countWeight);
+  };
 
   const minusAge = () => {
     if (age > 0) {
-      onChangeAge(--age);
+      setAge(prevValue => prevValue - 1);
+      timerMinusAge.current = setTimeout(minusAge, 100);
     }
   };
 
-  const plusAge = () => onChangeAge(++age);
+  const plusAge = () => {
+    setAge(prevValue => prevValue + 1);
+    timerPlusAge.current = setTimeout(plusAge, 100);
+  };
+
+  const stopAge = () => {
+    clearTimeout(timerPlusAge.current);
+    clearTimeout(timerMinusAge.current);
+    onChangeAge(countAge);
+  };
 
   return (
     <View style={styles.container}>
       <View style={styles.square}>
         <Text style={styles.text}>WEIGHT</Text>
-        <Text style={styles.value}>{weight}</Text>
+        <Text style={styles.value}>{countWeight}</Text>
         <View style={styles.actionWrapper}>
-          <TouchableOpacity style={styles.action} onPress={minusWeight}>
+          <TouchableOpacity
+            style={styles.action}
+            onPressIn={minusWeight}
+            onPressOut={stopWeight}>
             <Icon name="minus" size={30} color={Colors.disable} />
           </TouchableOpacity>
-          <TouchableOpacity style={styles.action} onPress={plusWeight}>
+          <TouchableOpacity
+            style={styles.action}
+            onPressIn={plusWeight}
+            onPressOut={stopWeight}>
             <Icon name="plus" size={30} color={Colors.disable} />
           </TouchableOpacity>
         </View>
       </View>
       <View style={styles.square}>
         <Text style={styles.text}>AGE</Text>
-        <Text style={styles.value}>{age}</Text>
+        <Text style={styles.value}>{countAge}</Text>
         <View style={styles.actionWrapper}>
-          <TouchableOpacity style={styles.action} onPress={minusAge}>
+          <TouchableOpacity
+            style={styles.action}
+            onPressIn={minusAge}
+            onPressOut={stopAge}>
             <Icon name="minus" size={30} color={Colors.disable} />
           </TouchableOpacity>
-          <TouchableOpacity style={styles.action} onPress={plusAge}>
+          <TouchableOpacity
+            style={styles.action}
+            onPressIn={plusAge}
+            onPressOut={stopAge}>
             <Icon name="plus" size={30} color={Colors.disable} />
           </TouchableOpacity>
         </View>
