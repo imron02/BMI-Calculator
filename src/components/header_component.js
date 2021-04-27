@@ -39,7 +39,7 @@ const styles = StyleSheet.create({
     flex: 1,
   },
   title: {
-    color: '#fff',
+    color: Colors.white,
     textAlign: 'center',
     fontWeight: 'bold',
     fontSize: 16,
