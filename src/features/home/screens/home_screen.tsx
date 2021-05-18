@@ -33,6 +33,10 @@ function HomeScreen({navigation}: Props) {
     const bmi = Number(weight / (Math.pow(height, 2) / 10000));
     navigation.navigate(ScreenName.ResultScreen, {
       bmi,
+      age,
+      height,
+      weight,
+      gender,
     });
   };
 
