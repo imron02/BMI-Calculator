@@ -12,7 +12,6 @@ const styles = StyleSheet.create({
   content: {paddingBottom: 130},
   button: {
     width,
-    // backgroundColor: isActive ? Colors.danger : Colors.disable,
     position: 'absolute',
     bottom: 0,
     height: 60,
@@ -26,6 +25,11 @@ const styles = StyleSheet.create({
     fontSize: 16,
     color: Colors.white,
     letterSpacing: 3,
+  },
+  weightAndAge: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    marginTop: 25,
   },
 });
 

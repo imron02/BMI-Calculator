@@ -1,5 +1,5 @@
 import React from 'react';
-import {ScrollView, Text, TouchableOpacity} from 'react-native';
+import {ScrollView, Text, TouchableOpacity, View} from 'react-native';
 import {StackScreenProps} from '@react-navigation/stack';
 import {useFocusEffect} from '@react-navigation/native';
 
@@ -8,7 +8,8 @@ import {ScreenName} from '../../../utils/constant';
 import styles from './home_style';
 import GenderComponent from '../components/gender_component';
 import HeightComponent from '../components/height_component';
-import WeightAndAgeComponent from '../components/weight_age_component';
+import WeightComponent from '../components/weight_component';
+import AgeComponent from '../components/age_component';
 
 type Props = StackScreenProps<HomeStackParamList, ScreenName.HomeScreen>;
 
@@ -42,12 +43,10 @@ function HomeScreen({navigation}: Props) {
         contentContainerStyle={styles.content}>
         <GenderComponent gender={gender} onChange={setGender} />
         <HeightComponent value={height} onChange={setHeight} />
-        <WeightAndAgeComponent
-          weight={weight}
-          age={age}
-          onChangeWeight={setWeight}
-          onChangeAge={setAge}
-        />
+        <View style={styles.weightAndAge}>
+          <WeightComponent weight={weight} onChangeWeight={setWeight} />
+          <AgeComponent age={age} onChangeAge={setAge} />
+        </View>
       </ScrollView>
       <TouchableOpacity
         style={[
