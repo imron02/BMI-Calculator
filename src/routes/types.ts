@@ -1,5 +1,6 @@
 export type RootStackParamList = {
   HomeStack: undefined;
+  HistoryScreen: undefined;
 };
 
 export type HomeStackParamList = {

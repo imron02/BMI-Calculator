@@ -1,5 +1,6 @@
 export enum ScreenName {
-  HomeStack = 'Home',
+  HomeStack = 'HomeStack',
   HomeScreen = 'HomeScreen',
   ResultScreen = 'ResultScreen',
+  HistoryScreen = 'HistoryScreen',
 }

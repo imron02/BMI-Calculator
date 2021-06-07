@@ -8,6 +8,7 @@ import {Colors} from '../utils/colors_util';
 import HomeScreen from '../features/home/screens/home_screen';
 import HeaderComponent from '../components/header_component';
 import ResultScreen from '../features/result/screens/result_screen';
+import HistoryScreen from '../features/history/screens/history_screen';
 
 const Drawer = createDrawerNavigator<RootStackParamList>();
 const Stack = createStackNavigator<HomeStackParamList>();
@@ -25,7 +26,11 @@ const HomeStack = () => (
         header: () => <HeaderComponent />,
       }}
     />
-    <Stack.Screen name={ScreenName.ResultScreen} component={ResultScreen} />
+    <Stack.Screen
+      name={ScreenName.ResultScreen}
+      component={ResultScreen}
+      options={{title: 'Result'}}
+    />
   </Stack.Navigator>
 );
 
@@ -35,8 +40,26 @@ const RootNavigation = () => {
       initialRouteName={ScreenName.HomeStack}
       drawerType="slide"
       lazy
-      detachInactiveScreens>
-      <Drawer.Screen name={ScreenName.HomeStack} component={HomeStack} />
+      detachInactiveScreens
+      drawerStyle={{
+        backgroundColor: Colors.dark,
+      }}
+      drawerContentOptions={{
+        activeTintColor: Colors.green,
+        inactiveTintColor: Colors.white,
+      }}>
+      <Drawer.Screen
+        name={ScreenName.HomeStack}
+        component={HomeStack}
+        options={{drawerLabel: 'Home'}}
+      />
+      <Drawer.Screen
+        name={ScreenName.HistoryScreen}
+        component={HistoryScreen}
+        options={{
+          drawerLabel: 'History',
+        }}
+      />
     </Drawer.Navigator>
   );
 };
