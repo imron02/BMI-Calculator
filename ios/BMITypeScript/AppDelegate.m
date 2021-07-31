@@ -3,6 +3,9 @@
 #import <React/RCTBridge.h>
 #import <React/RCTBundleURLProvider.h>
 #import <React/RCTRootView.h>
+#import <AppCenterReactNative.h>
+#import <AppCenterReactNativeAnalytics.h>
+#import <AppCenterReactNativeCrashes.h>
 
 #ifdef FB_SONARKIT_ENABLED
 #import <FlipperKit/FlipperClient.h>
@@ -42,6 +45,9 @@ static void InitializeFlipper(UIApplication *application) {
       rootView.backgroundColor = [UIColor whiteColor];
   }
 
+  [AppCenterReactNative register];
+  [AppCenterReactNativeAnalytics registerWithInitiallyEnabled:true];
+  [AppCenterReactNativeCrashes registerWithAutomaticProcessing];
   self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
   UIViewController *rootViewController = [UIViewController new];
   rootViewController.view = rootView;

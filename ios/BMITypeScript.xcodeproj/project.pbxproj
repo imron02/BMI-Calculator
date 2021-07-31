@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		00E356F31AD99517003FC87E /* BMITypeScriptTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 00E356F21AD99517003FC87E /* BMITypeScriptTests.m */; };
+		0448066026B51DDD00A3662A /* AppCenter-Config.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0448065F26B51DDD00A3662A /* AppCenter-Config.plist */; };
 		13B07FBC1A68108700A75B9A /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB01A68108700A75B9A /* AppDelegate.m */; };
 		13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
 		13B07FC11A68108700A75B9A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
@@ -30,6 +31,7 @@
 		00E356EE1AD99517003FC87E /* BMITypeScriptTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BMITypeScriptTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		00E356F11AD99517003FC87E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		00E356F21AD99517003FC87E /* BMITypeScriptTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BMITypeScriptTests.m; sourceTree = "<group>"; };
+		0448065F26B51DDD00A3662A /* AppCenter-Config.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "AppCenter-Config.plist"; sourceTree = "<group>"; };
 		13B07F961A680F5B00A75B9A /* BMITypeScript.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BMITypeScript.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		13B07FAF1A68108700A75B9A /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AppDelegate.h; path = BMITypeScript/AppDelegate.h; sourceTree = "<group>"; };
 		13B07FB01A68108700A75B9A /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AppDelegate.m; path = BMITypeScript/AppDelegate.m; sourceTree = "<group>"; };
@@ -116,6 +118,7 @@
 		83CBB9F61A601CBA00E9B192 = {
 			isa = PBXGroup;
 			children = (
+				0448065F26B51DDD00A3662A /* AppCenter-Config.plist */,
 				13B07FAE1A68108700A75B9A /* BMITypeScript */,
 				832341AE1AAA6A7D00B99B32 /* Libraries */,
 				00E356EF1AD99517003FC87E /* BMITypeScriptTests */,
@@ -145,7 +148,6 @@
 				FE685FFC480CFE0C7A9913F5 /* Pods-BMITypeScript-BMITypeScriptTests.debug.xcconfig */,
 				29E33A6BBAC07283199DD0A6 /* Pods-BMITypeScript-BMITypeScriptTests.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -245,6 +247,7 @@
 			files = (
 				81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */,
 				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
+				0448066026B51DDD00A3662A /* AppCenter-Config.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -432,6 +435,9 @@
 			baseConfigurationReference = FE685FFC480CFE0C7A9913F5 /* Pods-BMITypeScript-BMITypeScriptTests.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_IDENTITY = "iPhone Distribution";
+				CODE_SIGN_STYLE = Manual;
+				DEVELOPMENT_TEAM = 5PKBN83WF6;
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
 					"$(inherited)",
@@ -450,6 +456,8 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				"PROVISIONING_PROFILE_SPECIFIER[sdk=macosx*]" = "";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/BMITypeScript.app/BMITypeScript";
 			};
 			name = Debug;
@@ -459,7 +467,10 @@
 			baseConfigurationReference = 29E33A6BBAC07283199DD0A6 /* Pods-BMITypeScript-BMITypeScriptTests.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_IDENTITY = "iPhone Distribution";
+				CODE_SIGN_STYLE = Manual;
 				COPY_PHASE_STRIP = NO;
+				DEVELOPMENT_TEAM = 5PKBN83WF6;
 				INFOPLIST_FILE = BMITypeScriptTests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -474,6 +485,8 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				"PROVISIONING_PROFILE_SPECIFIER[sdk=macosx*]" = "";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/BMITypeScript.app/BMITypeScript";
 			};
 			name = Release;
@@ -484,7 +497,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "Apple Distribution: Meteor Inovasi Digital, PT. (5PKBN83WF6)";
+				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 5PKBN83WF6;
 				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = BMITypeScript/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -496,8 +512,9 @@
 					"-ObjC",
 					"-lc++",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.$(PRODUCT_NAME:rfc1034identifier)";
+				PRODUCT_BUNDLE_IDENTIFIER = dev.meteor.ayooshow;
 				PRODUCT_NAME = BMITypeScript;
+				PROVISIONING_PROFILE_SPECIFIER = "Bolt Dev";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				VERSIONING_SYSTEM = "apple-generic";
@@ -510,7 +527,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "Apple Distribution: Meteor Inovasi Digital, PT. (5PKBN83WF6)";
+				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 5PKBN83WF6;
 				INFOPLIST_FILE = BMITypeScript/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -521,8 +541,9 @@
 					"-ObjC",
 					"-lc++",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.$(PRODUCT_NAME:rfc1034identifier)";
+				PRODUCT_BUNDLE_IDENTIFIER = dev.meteor.ayooshow;
 				PRODUCT_NAME = BMITypeScript;
+				PROVISIONING_PROFILE_SPECIFIER = "Bolt Dev";
 				SWIFT_VERSION = 5.0;
 				VERSIONING_SYSTEM = "apple-generic";
 			};
